@@ -40,6 +40,19 @@ void input(int** mtx, size_t a, size_t b){
     }
 }
 
+void output(int ** m, size_t a, size_t b){
+    for (size_t i = 0; i < a; ++i){
+        for (size_t j = 0; j < b; ++j){
+            if (j < b - 1){
+                std::cout << m[i][j] << " ";
+            }
+            else{
+                std::cout << m[i][j] << "\n";
+            }
+        }
+    }
+}
+
 int main(){
     size_t a, b;
     std::cin >> a >> b;
@@ -58,5 +71,10 @@ int main(){
     std::cin >> c;
     matrix = construct(matrix, c, a, b);
     input(matrix, a, b);
+    if (!std::cin){
+        std::cerr << "input error\n";
+        return 1;
+    }
+    output(matrix, a, b);
     destroy(matrix, 4);
 }
