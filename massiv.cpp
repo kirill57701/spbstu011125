@@ -1,6 +1,17 @@
 #include <iostream>
 #include <cstddef>
 
+int** convert(const int* t, size_t n, const size_t* lns, size_t rows){
+    int** matrix = new int* [rows];
+    for (size_t i = 0; i < rows; ++i){
+        matrix[i] = new int[lns[i]];
+        for (size_t j = 0; j < lns[i]; ++j){
+            matrix[i][j] = t[i];
+        }
+    }
+    return matrix;
+}
+
 void destroy(int ** mtx, size_t cr){
     for (size_t i = 0; i < cr; ++i){
         delete[] mtx[i];
