@@ -32,6 +32,14 @@ int ** construct(int ** mtx, int init, size_t a, size_t b){
     return mtx;
 }
 
+void input(int** mtx, size_t a, size_t b){
+    for (size_t i = 0; i < a; ++i){
+        for (size_t j = 0; j < b; ++j){
+            std::cin >> mtx[i][j];
+        }
+    }
+}
+
 int main(){
     size_t a, b;
     std::cin >> a >> b;
@@ -46,5 +54,9 @@ int main(){
         std::cerr << e.what();
         return 1;
     }
-    destroy(matrix, 5);
+    int c;
+    std::cin >> c;
+    matrix = construct(matrix, c, a, b);
+    input(matrix, a, b);
+    destroy(matrix, 4);
 }
